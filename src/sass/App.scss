@@ -1,0 +1,124 @@
+@import './variables';
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: $dark-blue;
+  color: $light-blue;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  width: 100%;
+  #root {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+form:focus {
+  outline: none !important;
+}
+
+nav {
+  height: 7rem;
+  font-size: 4rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  a {
+    color: $white;
+  }
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  &.column {
+    flex-direction: column;
+  }
+}
+
+.add-post-form {
+  width: 30rem;
+  margin: auto;
+  * {
+    margin: 0.5rem 0;
+  }
+}
+
+.text-input {
+  width: 100%;
+  background: $red;
+  color: $white;
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  border: none;
+  &::placeholder {
+    color: $white;
+  }
+}
+
+.text-area {
+  height: 15rem;
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 1rem;
+  background: $red;
+  color: $white;
+  border-radius: 0.3rem;
+  border: none;
+  resize: none;
+  &::placeholder {
+    color: $white;
+  }
+}
+
+.form-button {
+  background: $yellow;
+  color: $dark-blue;
+  font-size: 2rem;
+  height: 3rem;
+  border-radius: 0.3rem;
+  border: none;
+  margin: 0.2rem;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-wrapper {
+  width: 50rem;
+  margin: auto;
+  text-align: center;
+  a,
+  .post-title,
+  .post-body {
+    flex-basis: 33%;
+  }
+  .form-button {
+    margin: auto;
+  }
+}
+
+.post {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
