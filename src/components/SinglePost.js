@@ -1,11 +1,11 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
 
 class SinglePost extends React.Component {
   state = {
-    title: '',
-    body: '',
-    loading: true,
+    title: "",
+    body: "",
+    loading: true
   };
 
   componentDidMount() {
@@ -15,7 +15,9 @@ class SinglePost extends React.Component {
   getSinglePost = async () => {
     try {
       const { postId } = this.props;
-      const getReq = await axios.get(`http://localhost:8000/posts/${postId}`);
+      const getReq = await axios.get(
+        `https://cb911-backend.herokuapp.com/posts/${postId}`
+      );
       const reqData = getReq.data;
       this.setState({ ...reqData }, () => this.setState({ loading: false }));
     } catch (err) {
@@ -32,9 +34,12 @@ class SinglePost extends React.Component {
     event.preventDefault();
     try {
       const { postId } = this.props;
-      const putReq = await axios.put(`http://localhost:8000/posts/edit/${postId}`, {
-        ...this.state,
-      });
+      const putReq = await axios.put(
+        `https://cb911-backend.herokuapp.com/posts/edit/${postId}`,
+        {
+          ...this.state
+        }
+      );
       console.log(putReq);
     } catch (err) {
       console.log(err);
@@ -45,9 +50,12 @@ class SinglePost extends React.Component {
     e.preventDefault();
     try {
       const { postId } = this.props;
-      const delReq = await axios.delete(`http://localhost:8000/posts/delete/${postId}`, {
-        ...this.state,
-      });
+      const delReq = await axios.delete(
+        `https://cb911-backend.herokuapp.com/posts/delete/${postId}`,
+        {
+          ...this.state
+        }
+      );
       console.log(delReq);
     } catch (err) {
       console.log(err);
@@ -60,7 +68,7 @@ class SinglePost extends React.Component {
       deletePost: this.deletePost,
       handleChange: this.handleChange,
       updatePost: this.updatePost,
-      ...this.state,
+      ...this.state
     });
   }
 }
