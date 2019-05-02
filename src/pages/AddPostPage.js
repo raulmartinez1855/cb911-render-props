@@ -4,7 +4,7 @@ import AddPost from '../components/AddPost';
 const AddPostPage = props => (
   <AddPost>
     {({ handleChange, addPost, desc, title }) => (
-      <form onSubmit={e => addPost(e)} className="add-post-form flex-center column employee-adder">
+      <form onSubmit={e => addPost(e)} className="add-post-form flex-center column">
         <input
           type="text"
           name="title"
