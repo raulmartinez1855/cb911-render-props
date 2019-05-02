@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono');
+@import './variables';
+@import './Post';
+
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  width: 100%;
+}
+
+
+body {
+  background-color: $dark-blue;
+  color: $light-blue;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  width: 100%;
+  #root {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+form:focus {
+    outline: none !important;
+}
+
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  &.column {
+    flex-direction: column;
+  }
+}
+
+.add-post-form {
+  width: 30rem;
+  margin: auto;
+  * {
+    margin: .5rem 0;
+  }
+}
+
+.text-input {
+  width: 100%;
+  background: $red;
+  color: $white;
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  border: none;
+  &::placeholder { 
+    color: $white;
+  }
+} 
+
+.text-area {
+  height: 15rem;
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 1rem;
+  background: $red;
+  color: $white;
+  border-radius: 0.3rem;
+  border: none;
+  resize: none;
+  &::placeholder { 
+    color: $white;
+  }
+}
+
+.form-button {
+  background: $yellow;
+  color: $dark-blue;
+  font-size: 2rem;
+  height: 3rem;  
+  border-radius: 0.3rem;
+  border: none;
+  margin: 0.2rem;
+  font-size: 2rem;  
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
