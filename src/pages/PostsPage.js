@@ -16,15 +16,17 @@ const PostsPage = props => (
               <p>Body:</p>
               <p>{post.desc}</p>
             </div>
-            <Link to={`/posts/${post._id}`}>
-              <button className="form-button">EDIT</button>
-            </Link>
-            <button
-              className="form-button"
-              onClick={() => deletePost(post._id)}
-            >
-              DEL
-            </button>
+            <div className="flex-row">
+              <Link to={`/posts/${post._id}`}>
+                <button className="form-button">EDIT</button>
+              </Link>
+              <button
+                className="form-button"
+                onClick={() => deletePost(post._id)}
+              >
+                DEL
+              </button>
+            </div>
           </div>
         ));
       }}

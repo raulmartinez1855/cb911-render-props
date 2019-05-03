@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "./Nav";
 import PostsPage from "../pages/PostsPage";
+import DataChartPage from "../pages/DataChartPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import EditPostPage from "../pages/EditPostPage";
 import AddPostPage from "../pages/AddPostPage";
@@ -11,6 +12,7 @@ const Router = () => (
     <Nav />
     <Switch>
       <Route exact path="/" component={PostsPage} />
+      <Route exact path="/chart" component={DataChartPage} />
       <Route exact path="/posts" component={PostsPage} />
       <Route exact path="/posts/:id" component={EditPostPage} />
       <Route exact path="/add" component={AddPostPage} />

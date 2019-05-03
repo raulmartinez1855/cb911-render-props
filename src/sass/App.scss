@@ -104,13 +104,25 @@ nav {
 }
 
 .post-wrapper {
-  width: 50rem;
+  width: 70rem;
   margin: auto;
   text-align: center;
-  a,
+  .flex-row {
+    flex-basis: 20%;
+  }
+  .post-title {
+    flex-basis: 10%;
+    font-size: 2rem;
+  }
+  .post-body { 
+    flex-basis: 40%;
+  } 
   .post-title,
-  .post-body {
-    flex-basis: 33%;
+  .post-body {    
+    font-size: 2rem;
+    p:first-of-type {
+      color: $yellow;
+    }
   }
   .form-button {
     margin: auto;
