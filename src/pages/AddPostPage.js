@@ -1,10 +1,13 @@
-import React from 'react';
-import AddPost from '../components/AddPost';
+import React from "react";
+import SinglePost from "../components/SinglePost";
 
 const AddPostPage = props => (
-  <AddPost>
+  <SinglePost noFetch={true}>
     {({ handleChange, addPost, desc, title }) => (
-      <form onSubmit={e => addPost(e)} className="add-post-form flex-center column">
+      <form
+        onSubmit={e => addPost(e)}
+        className="add-post-form flex-center column grow-to-size"
+      >
         <input
           type="text"
           name="title"
@@ -27,7 +30,7 @@ const AddPostPage = props => (
         </button>
       </form>
     )}
-  </AddPost>
+  </SinglePost>
 );
 
 export default AddPostPage;

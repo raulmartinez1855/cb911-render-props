@@ -1,14 +1,15 @@
-import React from 'react';
-import SinglePost from '../components/SinglePost';
+import React from "react";
+import SinglePost from "../components/SinglePost";
 
 const SinglePostPage = props => (
   <SinglePost postId={props.match.params.id}>
     {info => {
-      const { title, desc, handleChange, updatePost, deletePost, loading } = info;
-
-      if (loading) return null;
+      const { title, desc, handleChange, updatePost, deletePost } = info;
       return (
-        <form onSubmit={e => updatePost(e)} className="add-post-form flex-center column employee-adder">
+        <form
+          onSubmit={e => updatePost(e)}
+          className="add-post-form flex-center column grow-to-size"
+        >
           <h1>Edit Your Post</h1>
           <input
             type="text"
@@ -27,13 +28,14 @@ const SinglePostPage = props => (
             value={desc}
             placeholder="Post Body..."
           />
-
-          <button className="form-button" type="submit">
-            Update
-          </button>
-          <button className="form-button" onClick={e => deletePost(e)}>
-            Delete
-          </button>
+          <div className="flex-row">
+            <button className="form-button" type="submit">
+              Update
+            </button>
+            <button className="form-button" onClick={e => deletePost(e)}>
+              Delete
+            </button>
+          </div>
         </form>
       );
     }}

@@ -6,6 +6,11 @@ $white: #fff;
 $yellow: #fad744;
 
 /* Animations */
+
+.smooth-in {
+  animation: smooth-in 300ms ease running;  
+}
+
 @keyframes smooth-in {
   from {
     transform: translateX(-200%);
@@ -16,6 +21,10 @@ $yellow: #fad744;
   to {
     transform: translateX(0%);
   }
+}
+
+.grow-to-size {
+  animation: grow-to-size 300ms ease running;  
 }
 
 @keyframes grow-to-size {

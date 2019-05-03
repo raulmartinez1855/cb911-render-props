@@ -1,46 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-class Posts extends React.Component {
-  state = {
-    posts: [],
-    loading: true
-  };
+export default function Posts(props) {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  componentDidMount() {
-    this.getPosts();
-  }
-
-  getPosts = async () => {
-    try {
-      const res = await axios.get("https://cb911-backend.herokuapp.com/posts");
-      this.setState({ posts: res.data.data }, () =>
-        this.setState({ loading: false })
-      );
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  deletePost = async postId => {
+  const deletePost = async postId => {
     try {
       const delReq = await axios.delete(
-        `http://localhost:8000/posts/delete/${postId}`
+        `https://cb911-backend.herokuapp.com/posts/delete/${postId}`
       );
       console.log(delReq);
-      await this.getPosts();
+      const newPosts = posts.filter(p => p._id !== postId);
+      await setPosts(newPosts);
     } catch (err) {
       console.log(err);
     }
   };
 
-  render() {
-    const { children } = this.props;
-    return children({
-      ...this.state,
-      deletePost: this.deletePost
-    });
-  }
-}
+  useEffect(() => {
+    axios
+      .get("https://cb911-backend.herokuapp.com/posts")
+      .then(res => setPosts(res.data.data))
+      .then(() => setLoading(false));
+  }, []);
 
-export default Posts;
+  const { children } = props;
+
+  if (loading) return null;
+  return children({ deletePost, posts, loading });
+}

@@ -1,16 +1,35 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 class SinglePost extends React.Component {
   state = {
     title: "",
     body: "",
-    loading: true
+    loading: true,
+    redirect: false
   };
 
   componentDidMount() {
-    this.getSinglePost();
+    if (this.props.postId) this.getSinglePost();
+    if (this.props.noFetch) this.setState({ loading: false });
   }
+
+  addPost = async event => {
+    event.preventDefault();
+    try {
+      const postReq = await axios.post(
+        "https://cb911-backend.herokuapp.com/posts/new",
+        {
+          ...this.state
+        }
+      );
+      console.log(postReq);
+      await this.setState({ title: "", desc: "", redirect: true });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   getSinglePost = async () => {
     try {
@@ -41,6 +60,9 @@ class SinglePost extends React.Component {
         }
       );
       console.log(putReq);
+      this.setState(({ redirect }) => ({
+        redirect: true
+      }));
     } catch (err) {
       console.log(err);
     }
@@ -51,20 +73,22 @@ class SinglePost extends React.Component {
     try {
       const { postId } = this.props;
       const delReq = await axios.delete(
-        `https://cb911-backend.herokuapp.com/posts/delete/${postId}`,
-        {
-          ...this.state
-        }
+        `https://cb911-backend.herokuapp.com/posts/delete/${postId}`
       );
       console.log(delReq);
+      this.setState({ redirect: true });
     } catch (err) {
       console.log(err);
     }
   };
 
   render() {
+    const { loading, redirect } = this.state;
     const { children } = this.props;
+    if (loading) return null;
+    if (redirect) return <Redirect to="/" />;
     return children({
+      addPost: this.addPost,
       deletePost: this.deletePost,
       handleChange: this.handleChange,
       updatePost: this.updatePost,

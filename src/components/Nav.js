@@ -1,9 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Nav = () => (
   <nav>
-    <Link to={`/`}>Posts</Link> <Link to={`/add`}>Add Post</Link>
+    <Link to={`/`}>All</Link>
+    <Link to={`/add`}>Add</Link>
   </nav>
 );
 
