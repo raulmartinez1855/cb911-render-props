@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
+import Loading from "./Loading";
 import axios from "axios";
 
 export default function DataChart() {
@@ -43,7 +44,7 @@ export default function DataChart() {
     grabSampleData();
   }, []);
 
-  if (loading) return null;
+  if (loading) return <Loading />;
   return (
     <div className="flex-center">
       <Chart
