@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Loading from "./Loading";
 import axios from "axios";
 
 export default function Posts(props) {
@@ -27,6 +28,6 @@ export default function Posts(props) {
 
   const { children } = props;
 
-  if (loading) return null;
+  if (loading) return <Loading />;
   return children({ deletePost, posts, loading });
 }

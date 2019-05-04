@@ -1,4 +1,5 @@
 @import './variables';
+@import './Loading';
 
 html {
   font-size: 62.5%;
@@ -35,8 +36,10 @@ nav {
   height: 7rem;
   font-size: 4rem;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  max-width: 70rem;
+  margin: auto;
   a {
     color: $white;
   }
@@ -104,7 +107,8 @@ nav {
 }
 
 .post-wrapper {
-  width: 70rem;
+  padding: 4rem 0;
+  max-width: 70rem;
   margin: auto;
   text-align: center;
   .flex-row {
